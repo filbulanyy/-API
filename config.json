@@ -1,0 +1,43 @@
+{
+  "sources": [
+    {
+      "name": "weather",
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": 55.7558,
+        "longitude": 37.6173,
+        "current_weather": true
+      },
+      "method": "GET",
+      "headers": {},
+      "response_mapping": {
+        "temperature": "current_weather.temperature",
+        "wind_speed": "current_weather.windspeed"
+      }
+    },
+    {
+      "name": "catfact",
+      "url": "https://catfact.ninja/fact",
+      "params": {},
+      "method": "GET",
+      "headers": {},
+      "response_mapping": {
+        "fact": "fact",
+        "length": "length"
+      }
+    },
+    {
+      "name": "universities",
+      "url": "http://universities.hipolabs.com/search",
+      "params": {
+        "country": "Russia",
+        "limit": 5
+      },
+      "method": "GET",
+      "headers": {},
+      "response_mapping": {
+        "results": "$"
+      }
+    }
+  ]
+}
