@@ -34,12 +34,20 @@ async def fetch_source(
         url = str(source.url)
         start_time = time.time()
         
+        #мотивировано вылезшей ошибкой после запуска проекта
+        params = {}
+        for key, value in source.params.items():
+            if isinstance(value, bool):
+                params[key] = str(value).lower()  
+            else:
+                params[key] = value
+        
         for attempt in range(retries):
             try:
                 async with session.request(
                     method=source.method,
                     url=url,
-                    params=source.params,
+                    params=params,
                     headers=source.headers,
                     timeout=aiohttp.ClientTimeout(total=timeout)
                 ) as response:
@@ -52,6 +60,10 @@ async def fetch_source(
                         )
                     
                     data = await response.json()
+                    #тоже мотивировано вылезшей ошибкой после запуска проекта
+                    if isinstance(data, list):
+                        data = {"results": data}
+                        
                     elapsed_ms = (time.time() - start_time) * 1000
                     
                     return FetchResult(
