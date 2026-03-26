@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-03-25T23:18:48.398113",
+  "total_sources": 3,
+  "successful": 3,
+  "failed": 0,
+  "total_time_ms": 1154.0462970733643,
+  "results": [
+    {
+      "source_name": "weather",
+      "success": true,
+      "data": {
+        "temperature": 3.4,
+        "wind_speed": 5.1
+      },
+      "status_code": 200,
+      "elapsed_ms": 1152.0071029663086,
+      "error": null,
+      "retries_used": 0
+    },
+    {
+      "source_name": "catfact",
+      "success": true,
+      "data": {
+        "fact": "Both humans and cats have identical regions in the brain responsible for emotion.",
+        "length": 81
+      },
+      "status_code": 200,
+      "elapsed_ms": 1154.0462970733643,
+      "error": null,
+      "retries_used": 0
+    },
+    {
+      "source_name": "universities",
+      "success": true,
+      "data": {
+        "results": {
+          "results": []
+        }
+      },
+      "status_code": 200,
+      "elapsed_ms": 765.3393745422363,
+      "error": null,
+      "retries_used": 0
+    }
+  ]
+}

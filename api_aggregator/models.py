@@ -29,3 +29,16 @@ class AggregatedReport(BaseModel):
     failed: int
     total_time_ms: float
     results: list[FetchResult]
+
+class ServerInfo(BaseModel):
+    name: str
+    version: str
+    uptime_seconds: float
+    uptime_human: str
+    last_refresh: Optional[str] = None
+    sources_count: int
+
+
+class RefreshResponse(BaseModel):
+    status: str
+    message: str
